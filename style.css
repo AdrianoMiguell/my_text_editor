@@ -14,18 +14,20 @@
 
 body {
     background-color: rgb(11, 21, 66);
-    width: 100vw;
+    min-height: 100vh;
+}
+
+section{
+    padding: 50px;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 .container {
     background-color: beige;
-    min-height: 75vmin;
-    /* width: 75vmin; */
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 .options {
@@ -33,20 +35,30 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
-    padding: .5rem;
+    gap: 15px 25px;
+    padding: 1rem;
     background-color: #ffff7a;
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 .option-button,
 .adv-option-button {
-    width: 25px;
-    height: 25px;
     border: none;
-    padding: 5px;
+    padding: 10px;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 12pt;
+}
+
+.btn-align{
+    display: flex;
+    gap: 15px;
+}
+.btn-align input[type="radio"]{
+    display: none;
+}
+.btn-align input[type="radio"]:active~label{
+    background-color: #00000025;
 }
 
 .option-button {
@@ -57,17 +69,12 @@ body {
     background-color: #ffffb3;
 }
 
-/* .option-button:active , .adv-option-button:focus {
-    background-color: black;
-}  */
-
 #text-input {
     padding: 1rem;
     margin: 1rem 5%;
-    min-height: 50vmin;
+    height: 50em;
     width: 90%;
     font-size: 12;
-    /* vertical-align: sub; */
 }
 
 .actived {

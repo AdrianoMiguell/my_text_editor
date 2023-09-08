@@ -1,0 +1,9 @@
+.code_squareOp {
+  width: 75vw !important;
+  margin: 10px auto;
+  padding: 1rem !important;
+  background-color: #56567830;
+  color: #85efae;
+  font-size: 11pt;
+  border-radius: 2.5px;
+}

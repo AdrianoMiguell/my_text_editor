@@ -7,6 +7,9 @@ const btnSubscript = document.getElementById("subscript");
 const areaInput = document.getElementById("text-input");
 
 const buttons = document.querySelectorAll(".option-button");
+let children = [];
+
+console.log(children);
 
 let options = {
   bold: false,
@@ -15,14 +18,15 @@ let options = {
   strikethrough: false,
   superscript: false,
   subscript: false,
+  textAlignment: 0,
 };
 
 let textSelection;
 
 const initialize = () => {
   areaInput.addEventListener("keyup", (e) => {
-    textActual(null);
     keyboardShortcuts(e);
+    verifyEvent(e);
   });
 
   buttons.forEach((button) => {
@@ -30,11 +34,54 @@ const initialize = () => {
       highlight(button.id);
     });
   });
+
+  highlight("justifyLeft");
+};
+
+const verifyEvent = (e) => {
+  let i = document.querySelectorAll("#text-input div");
+
+  if (typeof children == null) {
+    children = document.querySelectorAll("#text-input div");
+
+    textActual(children[children.length - 1]);
+    children[children.length - 1].ondblclick = () => {
+      textActual(children[children.length - 1]);
+    };
+  } else if (children.length != i.length) {
+    console.log("nova linha");
+    children = document.querySelectorAll("#text-input div");
+
+    if (e.keyCode == 13) {
+      console.log("Tecla verificada com o onkeyup");
+      textActual(children[children.length - 1]);
+      for (const i in children) {
+        children[i].ondblclick = () => {
+          textActual(children[i]);
+        };
+        children[i].onkeyup = () => {
+          textActual(children[i]);
+        };
+      }
+    } else {
+
+    }
+  }
 };
 
 const highlight = (id) => {
   let button = document.getElementById(id);
   let statusB = button.classList.contains("actived");
+
+  if (String(id).slice(0, 7) == "justify") {
+    let aligns = document.querySelectorAll(".align");
+    aligns.forEach((algsTexts) => {
+      let status = algsTexts.classList.contains("actived");
+      if (status == true) {
+        algsTexts.classList.toggle("actived");
+      }
+    });
+  }
 
   if (statusB === true) {
     button.classList.toggle("actived");
@@ -43,6 +90,7 @@ const highlight = (id) => {
     button.classList.add("actived");
     addHighlight(id);
   }
+  console.log(id);
 };
 
 const addHighlight = (id) => {
@@ -64,6 +112,15 @@ const addHighlight = (id) => {
       break;
     case "subscript":
       options.subscript = true;
+      break;
+    case "justifyLeft":
+      options.textAlignment = 0;
+      break;
+    case "justifyCenter":
+      options.textAlignment = 1;
+      break;
+    case "justifyRight":
+      options.textAlignment = 2;
       break;
   }
 };
@@ -87,6 +144,11 @@ const removeHighlight = (id) => {
       break;
     case "subscript":
       options.subscript = false;
+      break;
+    case "justifyLeft":
+    case "justifyCenter":
+    case "justifyRight":
+      options.textAlignment = 0;
       break;
   }
 };
@@ -118,33 +180,60 @@ const keyboardShortcuts = (keyboard) => {
   }
 };
 
-const textActual = () => {
-  child = document.querySelectorAll("#text-input div");
+const positionText = (children) => {
+  let position;
 
-  if (child[0] == undefined) {
-    aplication(areaInput);
-  } else {
-    aplication(child[child.length - 1]);
-    child[child.length - 1].addEventListener("dblclick", function () {
-      aplication(child[child.length - 1]);
+  for (const i in children) {
+    children[i].addEventListener("click", () => {
+      position = children[i];
     });
   }
+  if (position === undefined) {
+    position = null;
+  }
+
+  return position;
+};
+
+const textActual = (element) => {
+  console.log("Chegou no textAtual");
+  aplication(element);
+
+  // child = document.querySelectorAll("#text-input div");
+  // // let pos = positionText(child);
+
+  // if (child[0] == undefined) {
+  //   aplication(areaInput);
+  //   areaInput.addEventListener("dblclick", function () {
+  //     aplication(areaInput);
+  //   });
+  // } else if (child[0] != undefined && e.keyCode == 13) {
+  //   child[child.length - 1].ondblclick = () => {
+  //     aplication(child[child.length - 1]);
+  //   };
+  // } else {
+  //   child[child.length - 1].onkeypress = () => {
+  //     aplication(child[child.length - 1]);
+  //   };
+  // }
 };
 
 const aplication = (child) => {
+  console.log("aplication");
   textSelection = child;
   bold(options.bold, child);
   italic(options.italic, child);
   underline(options.underline, child);
   strikethrough(options.strikethrough, child);
-  textAlignment(options.superscript, options.subscript, child);
+  textVerticalAlignment(options.superscript, options.subscript, child);
+  textAlg(options.textAlignment, child);
 };
 
 const bold = (value, child) => {
   if (value === true) {
     child.style.fontWeight = "bold";
   } else {
-    child.style.fontWeight = "500";
+    child.style.fontWeight = "400";
   }
 };
 
@@ -188,7 +277,7 @@ const strikethrough = (value, child) => {
   }
 };
 
-const textAlignment = (superText, subText, child) => {
+const textVerticalAlignment = (superText, subText, child) => {
   if (superText === true) {
     child.style.verticalAlign = "super";
     child.style.fontSize = 6;
@@ -198,6 +287,19 @@ const textAlignment = (superText, subText, child) => {
   } else {
     child.style.verticalAlign = "middle";
     child.style.fontSize = 12;
+  }
+};
+const textAlg = (textAl, child) => {
+  console.log(textAl);
+  if (textAl == 0) {
+    child.style.display = "flex";
+    child.style.justifyContent = "start";
+  } else if (textAl == 1) {
+    child.style.display = "flex";
+    child.style.justifyContent = "center";
+  } else {
+    child.style.display = "flex";
+    child.style.justifyContent = "end";
   }
 };
 

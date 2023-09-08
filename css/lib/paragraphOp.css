@@ -1,0 +1,13 @@
+/* "title",
+    "subtitle",
+    "text",
+    "marcador",
+    "realce",
+    "link",
+    "numbering" */
+
+.paragraphOp {
+  font-size: 11pt;
+  color: white;
+  text-indent: 30px;
+}
