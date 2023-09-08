@@ -1,7 +1,11 @@
 .realceOp{
     width: 80vw !important;
+    font-size: 11pt !important;
     margin: .5rem auto;
     padding: 1rem;
     background-color: #565678;
     color: aliceblue;
+}
+.realceOp, .realceOp{
+    font-size: 11pt !important;
 }
