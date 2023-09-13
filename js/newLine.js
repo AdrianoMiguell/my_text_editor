@@ -1,9 +1,7 @@
 const textEditor = document.querySelector(".text-editor");
 const newLineStructure = `
-    <div class="text-line paragraphOp" contenteditable="true" tabindex="1">
-    </div> 
-    <div class="div-options">
-    </div>`;
+    <div class="text-line paragraphOp" contenteditable="true" tabindex="1" data-text="Enter text here"></div> 
+    <div class="div-options"></div>`;
 
 const newLine = function (r) {
   let div = document.createElement("div");

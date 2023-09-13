@@ -28,8 +28,11 @@ const constructOption = function (i) {
 
     if (testOptionsDisp == undefined) {
       createdDivOptionsDisp.innerHTML += `
+          <div class="divSelectStyle">
+          <span class="spanSelectStyle">Text style</span>
           <select class="btn-select btn-select-${i}">
-          </select>`;
+          </select>
+          </div>`;
 
       testOptionsDisp = document.querySelector(
         `.div-options-${i} .btn-select-${i}`
@@ -46,8 +49,8 @@ const constructOption = function (i) {
 
       if (divOptionsDisp != undefined) {
         let divInputColor = `<div class='divInputColor'> 
+          <label for='inputColor${i}'> color </label>
           <input type='color' id='inputColor${i}' class='inputColor' />
-          <label for='inputColor${i}'>  -  color </label>
         </div>`;
         divOptionsDisp.innerHTML += divInputColor;
       }

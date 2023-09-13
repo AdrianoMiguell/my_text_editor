@@ -1,9 +1,35 @@
 @import "./lib/optionsDisp.css";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
-@media screen and (max-width: 780px) {
-  .container {
-    width: 90vw !important;
+@media screen and (min-width: 920px) {
+  .text-editor {
+    margin: 5rem;
+    padding: 2rem;
+  }
+  .divTitle {
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (min-width: 580px) and (max-width: 920px) {
+  .text-editor {
+    margin: 1.5rem;
+    padding: 0.5rem;
+  }
+  .divTitle {
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  .text-editor {
+    margin: 0.5rem auto;
+    width: 90vw;
+    padding: 0.75rem;
+  }
+  .divTitle {
+    margin-bottom: 0.5rem;
+  }
+  .content .div-options {
+    translate: -20px !important;
   }
 }
 
@@ -21,34 +47,50 @@ body {
   color: #efefef;
 }
 
+.divTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 0;
+}
+.divTitle .title {
+  font-size: 11pt;
+  position: relative;
+  text-align: start;
+  margin-bottom: 2rem;
+}
+.divTitle .optionPage {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
 .text-editor {
-  margin: 5rem;
   position: relative;
   display: grid;
   gap: 2px 5px;
 }
-.text-editor .title {
-  font-size: 11pt;
-  position: relative;
-  translate: -0.5rem -3.5rem;
-  text-align: start;
-  margin-bottom: 2rem;
-}
 .text-editor .content {
-  margin: .5px 0;
-  padding: .5px 1px;
+  margin: 0.5px 0;
+  padding: 0.5px 1px;
   position: relative;
 }
 .content .text-line {
   width: 90vw;
   padding: 2px;
   text-indent: 25px;
-  letter-spacing: .2pt;
+  letter-spacing: 0.2pt;
   word-wrap: break-word;
   outline: none;
 }
 .content .text-line:hover {
   background-color: #56567822;
+  transition: 0.05s linear;
+}
+.content .text-line:empty:not(:focus):hover:before {
+  content: attr(data-text);
+  font-size: 9pt;
+  color: #565655;
   transition: 0.05s linear;
 }
 .content .div-options {
@@ -78,23 +120,61 @@ body {
 }
 
 .div-options .div-options-disp {
-  display: grid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
   border-radius: 5px;
   background-color: #343440;
   color: #a5a5b8;
-  padding: 10px 5px;
+  padding: 0 5px 10px 5px;
   overflow: hidden;
   text-align: start;
   font-size: 11pt !important;
-  text-transform: lowercase;
+  text-transform: capitalize;
   overflow-y: visible;
   z-index: 99;
 }
 .div-options .div-options-disp:hover {
   visibility: visible;
 }
-select {
+.div-options-disp::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #343451;
+  left: 0;
+  bottom: 0;
+}
+.div-options-disp .titleOption {
+  color: #cccccc;
+  margin: 10px auto;
+  text-align: center;
+  z-index: 99;
+}
+.div-options-disp .titleOption::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 36px;
+  background-color: #34345175;
+  left: 0;
+  top: 0;
+  border-bottom: 2px solid #232332;
+}
+.div-options-disp .divSelectStyle{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.div-options-disp span, .div-options-disp label{
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 10pt;
+}
+.div-options-disp select {
   border: none;
   outline: none;
   background-color: #343451;
@@ -106,9 +186,16 @@ select {
   padding: 5px 2.5px;
   appearance: none;
 }
-select option {
+.div-options-disp  option {
   align-items: center;
 }
+.div-options-disp .inputColor {
+  margin: auto;
+  height: 15px;
+  width: 25px;
+  text-align: center;
+}
+
 .btn-option {
   display: flex;
   gap: 5px;
@@ -126,16 +213,4 @@ select option {
 .btn-open-options:focus-visible ~ .div-options-disp,
 .div-options-disp:hover {
   visibility: visible;
-}
-
-.titleOption {
-  color: #a5a5b8;
-  margin: 10px auto;
-  text-align: center;
-}
-.inputColor {
-  margin: auto;
-  height: 15px;
-  width: 25px;
-  text-align: center;
 }

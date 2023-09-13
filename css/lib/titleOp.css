@@ -1,5 +1,5 @@
-.titleOp {
-  line-height: 25pt;
+.titleOp{
+  line-height: 25pt !important;
   text-align: center;
   font-size: 25pt;
   color: white;

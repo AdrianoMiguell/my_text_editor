@@ -6,9 +6,14 @@ function setOption(oldOption, option) {
     }
     textLine.setAttribute("class", `text-line ${option}Op`);
 
-    // if (option == "link") {
-    //   textLine.innerHTML = `<a href="${textLine.textContent}">  ${textLine.textContent} </a>`;
-    // }
+    removeStyleOfInternalElements();
+  }
+}
+
+function removeStyleOfInternalElements() {
+  let divsTextLine = document.querySelector(".is__active .text-line *");
+  if (divsTextLine != undefined) {
+    divsTextLine.removeAttribute("style");
   }
 }
 
