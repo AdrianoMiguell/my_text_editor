@@ -1,0 +1,157 @@
+.content .div-options {
+  display: grid;
+  gap: 0.75px;
+  border: none;
+  z-index: 99;
+}
+
+.div-options .btn-open-options {
+  visibility: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  visibility: hidden;
+  cursor: pointer;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 2px;
+  font-size: 12pt;
+  color: #efefef65;
+  z-index: 100;
+  transition: 0.1s ease-in-out;
+}
+
+.div-options .btn-open-options:hover,
+.div-options
+  .btn-open-options:active
+  .div-options
+  .btn-open-options:focus-visible
+  .div-options
+  .btn-open-options:focus {
+  background-color: #efefef25;
+}
+
+.div-options-disp {
+  visibility: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
+  position: absolute;
+  min-width: 250px;
+  max-height: 200px;
+  top: 28px;
+  border-radius: 10px;
+  background-color: #343440;
+  color: #a5a5b8;
+  padding: 15px 18px;
+  text-align: start;
+  font-size: 11pt !important;
+  text-transform: capitalize;
+  transition: 0.1s ease-in-out;
+  z-index: 99;
+}
+.div-options .div-options-disp::-webkit-scrollbar {
+  width: 8px;
+  background-color: #343440;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.div-options .div-options-disp::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 10px;
+  background-color: #a5a5b8;
+}
+
+.div-options .div-options-disp:hover {
+  visibility: visible;
+}
+.div-options-disp .titleOption {
+  color: #cccccc;
+  font-size: 11.5pt;
+  margin: 5px auto 5px 0px;
+  text-align: start;
+  z-index: 99;
+}
+.div-options-disp .divSelectStyle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.div-options-disp span,
+.div-options-disp label {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 10pt;
+}
+.div-options-disp select {
+  border: none;
+  outline: none;
+  background-color: #343440;
+  color: #a5a5b8;
+  text-transform: capitalize;
+  align-items: center;
+  width: 100%;
+  height: 25px;
+  padding: 5px;
+  appearance: none;
+  cursor: pointer;
+}
+.div-options-disp select:hover {
+  background-color: #343440;
+}
+option {
+  border: none !important;
+  background-color: #343440 !important;
+}
+option:hover {
+  background-color: #343440 !important;
+}
+.div-options-disp .inputColor {
+  margin: auto;
+  height: 15px;
+  width: 25px;
+  text-align: center;
+}
+
+.btn-option {
+  display: flex;
+  gap: 5px;
+  z-index: 999;
+}
+.text-line:focus-visible ~ .div-options .btn-open-options,
+.text-line:hover ~ .div-options .btn-open-options,
+.div-options:hover ~ .btn-open-options,
+.content:hover ~ .btn-open-options,
+.div-options .btn-open-options:active,
+.div-options .btn-open-options:focus,
+.div-options .btn-open-options:focus-visible,
+.div-options .btn-open-options:hover ~ .div-options-disp,
+.div-options .btn-open-options:active ~ .div-options-disp,
+.div-options .btn-open-options:focus ~ .div-options-disp,
+.btn-open-options:focus-visible ~ .div-options-disp,
+.div-options-disp:hover {
+  visibility: visible;
+}
+
+.blockOption {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  height: 50px !important;
+  width: 100%;
+  gap: 15px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.blockOption img {
+  height: 40px !important;
+  width: auto;
+}
+.blockOption:hover {
+  background-color: #a5a5b844;
+}

@@ -1,0 +1,67 @@
+@import "./classes.css";
+@import "./spaceEditor.css";
+@import "./options.css";
+@import "./lib/optionsDisp.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+:root {
+  --main-c-dark: 35, 35, 50;
+  --sec-c-dark: 52, 52, 64;
+  --tert-c-dark: 35, 35, 50;
+
+  --main-c-light: 35, 35, 50;
+  --sec-c-light: 35, 35, 50;
+  --tert-c-light: 35, 35, 50;
+}
+
+@media screen and (min-width: 920px) {
+  .divTitle {
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (min-width: 580px) and (max-width: 920px) {
+  .divTitle {
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  .divTitle {
+    margin-bottom: 0.5rem;
+  }
+  .content .div-options {
+    translate: -20px !important;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  /* overflow-x: hidden; */
+  background-color: #232332;
+  font-family: sans-serif;
+  color: #efefef;
+}
+
+.divTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 0;
+}
+.divTitle .title {
+  font-size: 11pt;
+  position: relative;
+  text-align: start;
+  margin-bottom: 2rem;
+}
+.divTitle .optionPage {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
