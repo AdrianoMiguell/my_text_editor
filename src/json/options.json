@@ -1,13 +1,7 @@
 {
   "options": {
-    "name": ["title", "subtitle", "paragraph", "highlight", "image"],
-    "img": [
-      "title.png",
-      "subtitle.png",
-      "paragraph.png",
-      "highlight.png",
-      "image.png"
-    ],
-    "class": ["title", "subtitle", "paragraph", "highlight", "image"]
+    "name": ["title", "subtitle", "paragraph", "quote", "highlight"],
+    "img": ["title.png", "subtitle.png", "paragraph.png", "quote.png", "highlight.png"],
+    "class": ["title", "subtitle", "paragraph", "quote", "highlight"]
   }
 }

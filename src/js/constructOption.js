@@ -37,47 +37,19 @@ const constructOption = async function (i) {
       let urlComp = window.location.origin + path;
 
       for (let op in optionsName) {
-        let divBlockOption;
-
-        switch (optionsClass[op]) {
-          case "image":
-            // uploaddata
-            divBlockOption = `
-            <form action='/' method='post' enctype='multipart/form-data' class='blockOption blockOption-${
-              optionsName[op]
-            }-${i}'>
-                <label for='input_image-${i}' style='width: 100%; cursor: pointer !important;'> 
-                
-                <img src='${urlComp + optionsImg[op]}' />
-                <span> ${optionsName[op]} </span>
-                
-                <input type='file' style='display: none;' name='input_image' id='input_image-${i}'">
-                </label>
-                </form>`;
-
-            break;
-
-          default:
-            divBlockOption = `<div class='blockOption blockOption-${
-              optionsName[op]
-            }-${i}'> 
+        let divBlockOption = `<div class='blockOption blockOption-${
+          optionsName[op]
+        }-${i}'> 
             <img src='${urlComp + optionsImg[op]}' />
             <span> 
                 ${optionsName[op]} 
               </span>
               </div>`;
-            break;
-        }
 
         divOptionsDisp.innerHTML += divBlockOption;
       }
 
       const opts = document.querySelectorAll(`.div-options-${i} .blockOption`);
-      let inpImage = document.querySelector(`#input_image-${i}`);
-
-      inpImage.addEventListener("input", () => {
-        optionController("image", i);
-      });
 
       for (let o = 0; o < opts.length; o++) {
         opts[o].addEventListener("click", () => {

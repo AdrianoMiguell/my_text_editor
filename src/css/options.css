@@ -124,7 +124,6 @@ option:hover {
 }
 
 .text-line:focus-visible ~ .div-options .btn-open-options,
-/* .text-line:hover ~ .div-options .btn-open-options, */
 .div-options:hover ~ .btn-open-options,
 .content:hover ~ .btn-open-options,
 .div-options .btn-open-options:active,
@@ -162,7 +161,3 @@ option:hover {
   cursor: pointer;
   display: block;
 } 
-
-.content .text-line:not(:empty) ~ .div-options .blockOption-image {
-  display: none !important;
-}

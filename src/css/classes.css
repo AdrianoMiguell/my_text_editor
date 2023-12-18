@@ -4,24 +4,39 @@
   letter-spacing: 0.2pt;
   word-wrap: break-word;
 }
+
 .highlight {
-  background-color: rgb(52, 52, 64);
+  background-color: #343440;
   text-indent: 25px;
   word-wrap: break-word;
 }
-.image {
-  min-width: 400px;
-  max-width: 100%;
-  height: auto;
-  background-position: center;
-  background-size: cover;
-}
+
 .paragraph {
   font-size: 12pt;
   text-indent: 25px;
   letter-spacing: 0.2pt;
   word-wrap: break-word;
 }
+
+.quote {
+  margin: 10px;
+  padding: 4px 5px 4px 15px !important;
+  position: relative;
+  text-indent: 25px;
+  background-color: #34344078;
+}
+.quote::after {
+  content: "";
+  background-color: #a5a5b8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
 .subtitle {
   margin: 5px 0 !important;
   padding: 15px 0 !important;
