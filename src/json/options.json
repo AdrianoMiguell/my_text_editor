@@ -1,13 +1,13 @@
 {
   "options": {
-    "name": ["title", "subtitle", "paragraph", "highlight", "code space"],
+    "name": ["title", "subtitle", "paragraph", "highlight", "image"],
     "img": [
       "title.png",
       "subtitle.png",
       "paragraph.png",
       "highlight.png",
-      "codespace.png"
+      "image.png"
     ],
-    "class": ["title", "subtitle", "paragraph", "highlight", "codespace"]
+    "class": ["title", "subtitle", "paragraph", "highlight", "image"]
   }
 }

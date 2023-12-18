@@ -1,5 +1,5 @@
 import newLine from "./newLine.js";
-import contructOption from "./contructOption.js";
+import constructOption from "./constructOption.js";
 import eventOpenMenu from "./eventOpenMenu.js";
 import checkedLines from "./checkedLines.js";
 
@@ -24,7 +24,7 @@ const eventNewLine = function (i) {
           textLines[i + 1].focus();
         } else {
           newLine(i + 1);
-          contructOption(i + 1);
+          constructOption(i + 1);
           eventOpenMenu(i + 1);
           checkedLines();
           eventNewLine(i + 1);

@@ -1,4 +1,5 @@
 import getDataOptions from "../getDataOptions.js";
+import removeTags from "./functions/removeTags.js";
 import optionController from "./functions/optionController.js";
 
 const changeOption = async (opt, line, id) => {
@@ -9,13 +10,19 @@ const changeOption = async (opt, line, id) => {
 
   optionsClass.forEach((elemClass) => {
     if (lineActual.classList.contains(elemClass)) {
+      
+      if(elemClass == 'image') {
+        console.log("Tem imagem");
+        removeTags(line);
+      }
+
       lineActual.classList.remove(elemClass);
     }
   });
 
   lineActual.classList.add(opt);
 
-  // if(opt == "codespace") {
+  // if(opt == "image") {
   //   optionController(opt, id);
   // }
 };

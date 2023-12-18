@@ -41,6 +41,7 @@
   overflow-y: visible;
   position: absolute;
   min-width: 250px;
+  max-width: 350px;
   max-height: 200px;
   top: 28px;
   border-radius: 10px;
@@ -121,16 +122,16 @@ option:hover {
   gap: 5px;
   z-index: 999;
 }
+
 .text-line:focus-visible ~ .div-options .btn-open-options,
-.text-line:hover ~ .div-options .btn-open-options,
+/* .text-line:hover ~ .div-options .btn-open-options, */
 .div-options:hover ~ .btn-open-options,
 .content:hover ~ .btn-open-options,
 .div-options .btn-open-options:active,
-.div-options .btn-open-options:focus,
+.div-options .btn-open-options:focus ~ .div-options-disp,
 .div-options .btn-open-options:focus-visible,
 .div-options .btn-open-options:hover ~ .div-options-disp,
 .div-options .btn-open-options:active ~ .div-options-disp,
-.div-options .btn-open-options:focus ~ .div-options-disp,
 .btn-open-options:focus-visible ~ .div-options-disp,
 .div-options-disp:hover {
   visibility: visible;
@@ -154,4 +155,14 @@ option:hover {
 }
 .blockOption:hover {
   background-color: #a5a5b844;
+}
+
+.blockOption-image label {
+  width: 100%;
+  cursor: pointer;
+  display: block;
+} 
+
+.content .text-line:not(:empty) ~ .div-options .blockOption-image {
+  display: none !important;
 }
